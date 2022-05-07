@@ -16,17 +16,16 @@ if sys.argv[-1] == 'publish':
     sys.exit()
 
 readme = open(here('README.md')).read()
-requirements = [x.strip() for x in open(here('requirements.txt')).readlines()]
 
-setup(name='python-tado',
-      version='0.13.0',
+setup(name='python-tado-dev',
+      version='0.13.0.dev1',
       description='PyTado from chrism0dwk, modfied by w.malgadey, diplix, michaelarnauts, LenhartStephan, splifter, syssi, andersonshatch, Yippy, p0thi',
       long_description=readme,
       keywords='tado',
       author='chrism0dwk, w.malgadey',
       author_email='chrism0dwk@gmail.com, w.malgadey@gmail.com',
-      url='https://github.com/wmalgadey/PyTado',
-      install_requires=requirements,
+      url='https://github.com/palazzem/PyTado',
+      install_requires=["requests"],
       license="GPL3",
       zip_safe=False,
       platforms=["any"],
