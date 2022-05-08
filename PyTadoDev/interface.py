@@ -355,10 +355,25 @@ class Tado:
             "termination": {"typeSkillBasedApp": overlayMode},
         }
 
+        # Debug
+        params ={
+            "zone": zone,
+            "overlayMode": overlayMode,
+            "setTemp": setTemp,
+            "duration": duration,
+            "deviceType": deviceType,
+            "power": power,
+            "mode": mode,
+            "fanSpeed": fanSpeed,
+            "swing": swing,
+        }
+        _LOGGER.error("Parameters: %s", params)
+
         # fanSpeed and swing are required for some devices and must be sent otherwise
         # you can't set some modes such as DRY
         if fanSpeed is not None:
             post_data["setting"]["fanSpeed"] = fanSpeed
+
         if swing is not None:
             post_data["setting"]["swing"] = swing
 
@@ -373,7 +388,7 @@ class Tado:
 
         data = self._apiCall(cmd, "PUT", post_data)
 
-        # DEBUG purpose
+        # Debug
         _LOGGER.error(data)
         return data
         
