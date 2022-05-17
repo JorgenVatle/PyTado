@@ -215,6 +215,7 @@ class Tado:
 
         cmd = 'zones/%i/capabilities' % zone
         data = self._apiCall(cmd)
+        _LOGGER.error("Capabilities from API for zone %s: %s", zone, data)
         return data
 
     def getClimate(self, zone):
